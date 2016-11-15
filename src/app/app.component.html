@@ -2,3 +2,13 @@
   {{title}}
   {{woah}}
 </h1>
+<nav>   
+<a routerLink="/" routerLinkActive="active">Welcome</a>
+	<a routerLink="/register" routerLinkActive="active">register</a>
+    <a routerLink="/encounter" routerLinkActive="active">encounter</a>
+    <a routerLink="/report" routerLinkActive="active">report</a>
+    </nav>
+
+  <div class="app-wrapper">
+<router-outlet></router-outlet>
+</div>
