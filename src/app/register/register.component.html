@@ -1,11 +1,11 @@
   <div class="app-wrapper">
 
-  	<h1> Register {{ colonist.name 	}} </h1>
+  	<h1> Register {{ colonist.name 	}} - {{ colonist.age }}] </h1>
   	<div class="content">
   		<form>
   			<div class="input-wrapper">
-  				<input class="text-name-input" type="text" name="name" placeholder="Name">
-  				<input class="text-name-input" type="number" name="Age" placeholder="Age">
+  				<input class="text-name-input" type="text" name="name" placeholder="Name" [(ngModel)]="colonist.name" >
+  				<input class="text-name-input" type="number" name="Age" placeholder="Age" [(ngModel)]="colonist.age">
   				<select class="text-name-input" name="Job">
   					<option value="" disabled selected>Select your option</option>
   					<option value="1">Dust Farmer</option>
