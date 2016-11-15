@@ -1,6 +1,23 @@
-<h1> Register </h1>
-<form>
-	<input type="email" name="name" placeholder="Name">
-	<input type="number" name="Age" placeholder="Age">
+  <div class="app-wrapper">
 
-</form>
+  	<h1> Register {{ colonist.name 	}} </h1>
+  	<div class="content">
+  		<form>
+  			<div class="input-wrapper">
+  				<input class="text-name-input" type="text" name="name" placeholder="Name">
+  				<input class="text-name-input" type="number" name="Age" placeholder="Age">
+  				<select class="text-name-input" name="Job">
+  					<option value="" disabled selected>Select your option</option>
+  					<option value="1">Dust Farmer</option>
+  					<option value="2">Alien Hunter</option>
+  					<option value="3">Battery Tech</option>
+  					<option value="4">Yoga Teacher</option>
+  					<option value="5">MC Donalds</option>
+  				</select>
+  			</div>
+  			<div class="button-wrapper">
+  				<button type="submit"> Register </button>
+  			</div>
+  		</form>
+  	</div>
+  </div>

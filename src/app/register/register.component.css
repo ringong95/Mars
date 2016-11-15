@@ -1,0 +1,47 @@
+.text-name-input{
+	width: 90%;
+	color: FireBrick ;
+	font-size: 100px;
+	border: none;
+	border-radius: 0px;
+	background: transparent;
+	 /*outline: 1px solid #CCC;*/
+	 border-radius: 0;
+	 -webkit-appearance: none;
+	 border-bottom: 1px white solid;
+
+	margin: 0 auto;
+}
+h1{
+	text-align: center;
+}
+.text-name-input::-webkit-input-placeholder{
+	color: FireBrick ;
+}
+.app-wrapper{
+	height: 100vh;
+	background: black;
+
+}
+form{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.input-wrapper{
+
+}
+button{
+	padding: 20px;
+}
+.button-wrapper{
+display: flex;
+align-self: flex-end;
+justify-content: center;
+width: 100%;
+
+}
+.content{
+	width: 80%;
+	margin: 0 auto;
+}
