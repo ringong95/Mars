@@ -6,18 +6,17 @@
   			<div class="input-wrapper">
   				<input class="text-name-input" type="text" name="name" placeholder="Name" [(ngModel)]="colonist.name" >
   				<input class="text-name-input" type="number" name="Age" placeholder="Age" [(ngModel)]="colonist.age">
-  				<select class="text-name-input" name="Job">
-  					<option value="" disabled selected>Select your option</option>
-  					<option value="1">Dust Farmer</option>
-  					<option value="2">Alien Hunter</option>
-  					<option value="3">Battery Tech</option>
-  					<option value="4">Yoga Teacher</option>
-  					<option value="5">MC Donalds</option>
+  				<select class="text-name-input" name="Job" [(ngModel)]= "colonist.job_id">
+  					<option [value]="NO_JOB_SELECTED"> ---Select a Job--- </option>
+  					<option *ngFor="let job of marsJobs" [value]="job.id" > {{job.name }} 
+  					</option>
+  					
   				</select>
   			</div>
   			<div class="button-wrapper">
-  				<button type="submit"> Register </button>
+  				<button [disabled]="nojobSelected" type="submit"> Register </button>
   			</div>
   		</form>
+  		{{ colonist.name }} | {{ colonist.age }} || {{ colonist.job_id }}
   	</div>
   </div>

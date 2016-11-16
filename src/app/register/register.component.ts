@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Colonist, Job } from '../models';
+import { NewColonist, Job } from '../models';
 import JobsService from '../services/jobs.service'
 @Component({
 	selector: 'app-register',
@@ -9,18 +9,22 @@ import JobsService from '../services/jobs.service'
 })
 export class RegisterComponent implements OnInit {
 
-	colonist: Colonist;
+	colonist: NewColonist;
 	marsJobs: Job[];
+	NO_JOB_SELECTED = '(none)';
 
 	constructor(jobsService: JobsService) { 
-		this.colonist = new Colonist('Tesla', null, null, null);
+		this.colonist = new NewColonist(null, null, this.NO_JOB_SELECTED);
 		jobsService.getJobs().subscribe((jobs) => {
-			// console.log(jobs);
+			console.log(jobs)	
 			this.marsJobs = jobs;
 		})
 	}
 
 	ngOnInit() {
+	}
+	get nojobSelected() {
+		return this.colonist.job_id === this.NO_JOB_SELECTED
 	}
 
 }
