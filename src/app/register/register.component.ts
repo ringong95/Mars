@@ -18,10 +18,16 @@ export class RegisterComponent implements OnInit {
 		jobsService.getJobs().subscribe((jobs) => {
 			console.log(jobs)	
 			this.marsJobs = jobs;
-		})
+		}, (err) => {
+			console.log(err);
+		});
 	}
 
 	ngOnInit() {
+		setTimeout(()=>{
+			console.log("I\'m Late!")
+		}, 2000);
+		console.log("I\'m on time!")
 	}
 	get nojobSelected() {
 		return this.colonist.job_id === this.NO_JOB_SELECTED
