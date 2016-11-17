@@ -2,21 +2,24 @@
 
   	<h1> Register </h1>
   	<div class="content">
-  		<form>
+  		<form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
   			<div class="input-wrapper">
-  				<input class="text-name-input" type="text" name="name" placeholder="Name" [(ngModel)]="colonist.name" >
-  				<input class="text-name-input" type="number" name="Age" placeholder="Age" [(ngModel)]="colonist.age">
-  				<select class="text-name-input" name="Job" [(ngModel)]= "colonist.job_id">
+
+  				<input class="text-name-input" type="text" formControlName="name" placeholder="Name" />
+
+  				<input class="text-name-input" type="number" formControlName="age" placeholder="Age" />
+
+  				<select class="text-name-input" formControlName="job_id">
+
   					<option [value]="NO_JOB_SELECTED"> ---Select a Job--- </option>
-  					<option *ngFor="let job of marsJobs" [value]="job.id" > {{job.name }} 
-  					</option>
+
+  					<option *ngFor="let job of marsJobs" [value]="job.id" > {{job.name }} </option>
   					
   				</select>
   			</div>
   			<div class="button-wrapper">
-  				<button [disabled]="nojobSelected" type="submit"> Register </button>
+  				<button type="submit"> Register </button>
   			</div>
   		</form>
-  		{{ colonist.name }} | {{ colonist.age }} || {{ colonist.job_id }}
   	</div>
   </div>

@@ -5,15 +5,15 @@ import { Job } from '../models';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export default class JobsService {
+export default class AliensService {
 
-  JOBS_JSON = "https://red-wdp-api.herokuapp.com/api/mars/jobs";
-  constructor(private http: Http) { }
+	JOBS_JSON = "https://red-wdp-api.herokuapp.com/api/mars/jobs";
+	constructor(private http: Http) { }
 
-  getJobs(): Observable<Job[]> {
-    return this.http.get( this.JOBS_JSON )
-                    .map((res: Response) => res.json().jobs);
-  };
+	getJobs(): Observable<Job[]> {
+		return this.http.get( this.JOBS_JSON )
+		.map((res: Response) => res.json().jobs);
+	};
 
 
 }

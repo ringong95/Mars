@@ -1,3 +1,22 @@
-<p>
-  encounters works!
-</p>
+<div clas="appwrap">
+  <header>
+     <h1>Recent Encounters</h1>
+     <p>Recent Encounters
+See an Alien? Report it!</p>
+     </header>
+<div class="encounterplace">
+  <ul>
+    <li *ngFor="let encounter of encounterlist">
+      <div>{{encounter.date}} {{encounter.atype}}</div>
+      <p> {{encounter.action}}</p>
+    </li> 
+  </ul>
+</div>
+
+
+<footer>
+      <a routerLink="/report" routerLinkActive="active">
+  <img src="http://pa1.narvii.com/5715/6e52f1cb03bfb2b648d7e4e9aecec4e1a7ea2910_hq.gif">
+  </a>
+</footer>
+</div>

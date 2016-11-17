@@ -1,0 +1,25 @@
+*{
+    color: black;
+}
+.encounterplace {
+    color: black;
+    list-style: none;
+width:100%;
+overflow-y: scroll;
+height: 50vh;
+}
+li{
+    list-style: none;
+}
+ul{
+    padding: 15px;
+    list-style: none;
+}
+footer{
+    height: 25vh;
+}
+header{
+    height: 15vh;
+    text-align: center;
+    
+}
