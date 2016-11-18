@@ -2,8 +2,8 @@
 
   	<h1> Register </h1>
   	<div class="content">
-  		<form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
-  			<div class="input-wrapper">
+  		<form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)" [ngClass]="{ showValidation: submited }">
+  			<fieldset class="input-wrapper">
 
   				<input class="text-name-input" type="text" formControlName="name" placeholder="Name" />
 
@@ -16,7 +16,7 @@
   					<option class="dropdownselection" *ngFor="let job of marsJobs" [value]="job.id" > {{job.name }} </option>
   					
   				</select>
-  			</div>
+  			</fieldset>
   			<div class="button-wrapper">
   				<button type="submit"> Register </button>
   			</div>

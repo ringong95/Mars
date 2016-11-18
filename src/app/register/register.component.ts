@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators,ValidatorFn,  AbstractControl } from '@angular/forms';
 import { NewColonist, Job } from '../models';
 import JobsService from '../services/jobs.service';
+import ColonistsService from '../services/colonists.service';
 import { cantBe } from '../shared/validators';
+import { Router } from '@angular/router';
 
 const notNone = (value)=> {
 	return value !== "(none)" ? true : true;
@@ -19,15 +21,16 @@ function tooOld(value: number): ValidatorFn{
 		selector: 'app-register',
 		templateUrl: './register.component.html',
 		styleUrls: ['./register.component.css'],
-		providers: [JobsService]
+		providers: [JobsService, ColonistsService]
 	})
 	export class RegisterComponent implements OnInit {
 
 		marsJobs: Job[];
 		registerForm: FormGroup;
 		NO_JOB_SELECTED = '(none)';
+		submited : boolean;
 
-		constructor(jobsService: JobsService) { 
+		constructor(private jobsService: JobsService, private colonistService: ColonistsService, private router: Router) { 
 			jobsService.getJobs().subscribe((jobs) => {
 				this.marsJobs = jobs;
 				console.log(jobs)	
@@ -41,15 +44,21 @@ function tooOld(value: number): ValidatorFn{
 			$event.preventDefault();
 			console.log( this.registerForm.invalid)
 			if(this.registerForm.invalid){
-
+			this.submited = true;
 			}else {
 
 			}
 			const name = this.registerForm.get('name').value;
 			const age = this.registerForm.get('age').value;
 			const job_id = this.registerForm.get('job_id').value;
-			new NewColonist(name, age , job_id);
-			console.log('Okm let\'s register this fuck ', new NewColonist(name, age, job_id));
+			const colonist = new NewColonist(name, age , job_id);
+			// console.log('Okm let\'s register this fuck ', new NewColonist(name, age, job_id));
+			this.colonistService.submitColonist(colonist).subscribe((response) => {
+				localStorage.setItem("colonist_id",JSON.stringify(response.id));
+				  this.router.navigate(['encounter']);
+			}, (err) => {
+				console.log(err);
+			});
 		}
 		ngOnInit() {
 

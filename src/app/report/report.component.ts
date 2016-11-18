@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators,ValidatorFn,  AbstractControl } from '@angular/forms';
 import { Alien, NewEncounter } from '../models';
 import AliensService from '../services/aliens.service';
-import { FormGroup, FormControl, FormBuilder, Validators,ValidatorFn,  AbstractControl } from '@angular/forms';
 import EncountersService from '../services/encounters.service';
-import { cantBe } from '../shared/validators'
+import { cantBe } from '../shared/validators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -49,7 +49,6 @@ onSubmit($event){
 			$event.preventDefault();
 
 			const date = this.getDate()
-			// console.log( this.reportForm.invalid)
 			if(this.reportForm.invalid){
 					
 			}else {
@@ -57,10 +56,11 @@ onSubmit($event){
 			}
 			const type = this.reportForm.get('atype').value;
 			const action = this.reportForm.get('action').value;
-			console.log (type , action);
-			new NewEncounter(date, type, action, 4 );
-			console.log('Okm let\'s register this fuck ', new NewEncounter(date, type, action, 4 ));
-			const encounter = new NewEncounter(date, type, action, 4 )
+					
+			const colonist_id = localStorage.getItem("colonist_id")
+		
+			new NewEncounter(date, type, action, colonist_id );
+			const encounter = new NewEncounter(date, type, action, colonist_id )
 
 
 

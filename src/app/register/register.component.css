@@ -1,9 +1,9 @@
-.register-form {
 
+.showValidation	.ng-invalid{
+animation: blinker .1s linear infinite;
+border: 1s pulse;
 }
-.show-validation input.ng-invalid  {
-	animation: blinker .1s linear infinite;
-}
+
 @keyframes blinker {  
   50% { opacity: 0; }
 }
