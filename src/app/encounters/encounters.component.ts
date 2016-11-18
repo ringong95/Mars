@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Encounter } from '../models';
+import { NewEncounter, Encounter } from '../models';
 import EncountersService from '../services/encounters.service'
 
 
@@ -11,14 +11,14 @@ import EncountersService from '../services/encounters.service'
 })
 export class EncountersComponent implements OnInit {
 
-	encounters: Encounter;
-	encounterlist: Encounter[];
+	encounters: NewEncounter;
+	encounterlist: NewEncounter[];
 
 	
 
 
 	constructor(encounterService: EncountersService) {
-		this.encounters = new Encounter (null, null, null, null, null);
+		this.encounters = new NewEncounter ( null, null, null, null);
 		encounterService.getEncounters().subscribe((encounters) => {
 				this.encounterlist = encounters ;
 			// this.encounters = encounters

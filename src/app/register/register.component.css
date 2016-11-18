@@ -1,8 +1,7 @@
 .register-form {
 
 }
-
-div .ng-dirty .ng-invalid {
+.show-validation input.ng-invalid  {
 	animation: blinker .1s linear infinite;
 }
 @keyframes blinker {  
@@ -56,5 +55,5 @@ width: 100%;
 	margin: 0 auto;
 }
 .ng-valid{
-	animation: blinker 0s linear infinite;
+	animation: none;
 }

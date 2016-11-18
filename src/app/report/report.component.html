@@ -1,8 +1,16 @@
-<!--<form>
-<select name="type" >
-  <option *ngFor="let alien of alienslist"> {{alien.type}} </option>
+	<form [formGroup]="reportForm" (ngSubmit)="onSubmit($event)">
+  			<div class="input-wrapper">
 
+  				<select class="text-name-input" formControlName="atype">
 
+  					<option [value]="NO_ALIEN_SELECTED"> ---Select an ALIEN--- </option>
 
-     </select>
-</form>-->
+  					<option class="dropdownselection" *ngFor="let alien of alienslist" [value]="" > {{alien.type }} </option>
+  					
+  				</select>
+          <textarea placeholder="Action Taken" formControlName="action"></textarea>
+  			</div>
+  			<div class="button-wrapper">
+  				<button type="submit"> Register </button>
+  			</div>
+  		</form>

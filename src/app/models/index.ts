@@ -1,12 +1,12 @@
 export class NewColonist {
     constructor(
-        public name: string, 
+        public name: string,
         public age: number,
         public job_id: string,
-        ){}
+    ) { }
 }
 
-interface Colonist {
+export interface Colonist {
 
     name: string;
     id: number;
@@ -14,33 +14,35 @@ interface Colonist {
     job: Job;
 }
 
-export class Job{
-    constructor(
+export class Job {
+         name: string;
+         id: number;
+         description: string;
 
-        public name: string,
-        public id: number,
-        public description: string,
-
-        ){}
 }
-export class Encounter{
+export interface Encounter {
+    id: number;
+    date: string;
+    atype: string;
+    action: string;
+    colonist_id: number;
+}
+
+export class NewEncounter {
     constructor(
-        public id: number,
         public date: string,
-        public colonist_id: number,
         public atype: string,
         public action: string,
-        ){}
+        public colonist_id: number,
+    ) { }
 
 }
-export class Alien {
-    constructor(
-        public id: number,
-        public type: string,
-        public submitted_by: string,
-        public description: string
-        ){}
-
+export interface Alien {
+    
+         id: number;
+         type: string;
+         submitted_by: string;
+         description: string;
 
 }
 
