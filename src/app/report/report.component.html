@@ -1,16 +1,21 @@
+<div class="app-wrapper">
+	<div class="header">
+		<h1> Report Encounter </h1>
+		<p> Safety on Pokemars is your responsibility </p>
+	</div>
 	<form [formGroup]="reportForm" (ngSubmit)="onSubmit($event)">
-  			<div class="input-wrapper">
 
-  				<select class="text-name-input" formControlName="atype">
+		<select class="text-name-input" formControlName="atype">
 
-  					<option [value]="NO_ALIEN_SELECTED"> ---Select an ALIEN--- </option>
+  					<option [value]="NO_ALIEN_SELECTED"> Select an ALIEN </option>
 
   					<option class="dropdownselection" *ngFor="let alien of alienslist" [value]="" > {{alien.type }} </option>
   					
   				</select>
-          <textarea placeholder="Action Taken" formControlName="action"></textarea>
-  			</div>
-  			<div class="button-wrapper">
-  				<button type="submit"> Register </button>
-  			</div>
-  		</form>
+		<textarea placeholder="Action Taken" formControlName="action"></textarea>
+
+		<div class="button-wrapper">
+			<button type="submit"> Register </button>
+		</div>
+	</form>
+</div>

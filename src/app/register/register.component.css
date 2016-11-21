@@ -1,16 +1,22 @@
 
 .showValidation	.ng-invalid{
-animation: blinker .1s linear infinite;
-border: 1s pulse;
+animation: blinker 1s linear infinite;
+/*border: 1s pulse;*/
 }
 
 @keyframes blinker {  
-  50% { opacity: 0; }
+  50% { opacity: 0;
+  		/*color: green,*/
+  		box-shadow: 0px 0px 53px 200px rgba(112,4,112,1);
+  		 }
 }
 .text-name-input{
 	width: 90%;
-	color: FireBrick ;
-	font-size: 100px;
+	height: 100px;
+	line-height: 1.5;
+	color: FireBrick;
+	font-size: 42px	;
+	/*letter-spacing: 20*/
 	border: none;
 	border-radius: 0px;
 	background: transparent;

@@ -5,6 +5,11 @@ import JobsService from '../services/jobs.service';
 import ColonistsService from '../services/colonists.service';
 import { cantBe } from '../shared/validators';
 import { Router } from '@angular/router';
+import {
+  HostBinding,
+  trigger, transition, animate,
+  style, state
+} from '@angular/core';
 
 const notNone = (value)=> {
 	return value !== "(none)" ? true : true;
@@ -21,7 +26,30 @@ function tooOld(value: number): ValidatorFn{
 		selector: 'app-register',
 		templateUrl: './register.component.html',
 		styleUrls: ['./register.component.css'],
-		providers: [JobsService, ColonistsService]
+		providers: [JobsService, ColonistsService],
+		animations: [
+    trigger('routeAnimation', [
+      state('*',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)'
+        })
+      ),
+      transition(':enter', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100%)'
+        }),
+        animate('1.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('1.5s ease-out', style({
+          opacity: 1,
+          transform: 'translateY(100%)'
+        }))
+      ])
+    ])
+  ]
 	})
 	export class RegisterComponent implements OnInit {
 
@@ -29,7 +57,15 @@ function tooOld(value: number): ValidatorFn{
 		registerForm: FormGroup;
 		NO_JOB_SELECTED = '(none)';
 		submited : boolean;
+		
+@HostBinding('@routeAnimation') get routeAnimation(){
+  return true;
+}
 
+@HostBinding('style.display') get display(){
+  return 'block';
+}
+		
 		constructor(private jobsService: JobsService, private colonistService: ColonistsService, private router: Router) { 
 			jobsService.getJobs().subscribe((jobs) => {
 				this.marsJobs = jobs;
@@ -42,8 +78,9 @@ function tooOld(value: number): ValidatorFn{
 		onSubmit($event){
 			// console.log($event)
 			$event.preventDefault();
-			console.log( this.registerForm.invalid)
+			
 			if(this.registerForm.invalid){
+				
 			this.submited = true;
 			}else {
 
@@ -53,7 +90,7 @@ function tooOld(value: number): ValidatorFn{
 			const job_id = this.registerForm.get('job_id').value;
 			const colonist = new NewColonist(name, age , job_id);
 			// console.log('Okm let\'s register this fuck ', new NewColonist(name, age, job_id));
-			this.colonistService.submitColonist(colonist).subscribe((response) => {
+			this.colonistService.submitColonist(colonist).subscribe( (response) => {
 				localStorage.setItem("colonist_id",JSON.stringify(response.id));
 				  this.router.navigate(['encounter']);
 			}, (err) => {

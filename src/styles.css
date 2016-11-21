@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 body{
 	color: white;
+	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	width: 100%;
 }
 .app-wrapper{
 
+}
+*{
+	font-family: 'Orbitron', sans-serif;
+	line-height: 1.2
 }

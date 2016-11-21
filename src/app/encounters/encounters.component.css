@@ -1,6 +1,9 @@
 *{
     color: black;
 }
+li{
+	padding: 10px, 0;
+}
 .encounterplace {
     color: black;
     list-style: none;

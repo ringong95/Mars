@@ -5,16 +5,50 @@ import AliensService from '../services/aliens.service';
 import EncountersService from '../services/encounters.service';
 import { cantBe } from '../shared/validators';
 import { Router } from '@angular/router';
+import {
+  HostBinding,
+  trigger, transition, animate,
+  style, state
+} from '@angular/core';
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css'],
-  providers: [AliensService, EncountersService]
+  providers: [AliensService, EncountersService],
+  animations: [
+    trigger('routeAnimation', [
+      state('*',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)'
+        })
+      ),
+      transition(':enter', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100%)'
+        }),
+        animate('1.2s ease-in')
+      ]),
+      transition(':leave', [
+        animate('1.5s ease-out', style({
+          opacity: 1,
+          transform: 'translateY(100%)'
+        }))
+      ])
+    ])
+  ]
 })
 export class ReportComponent implements OnInit {
 
+@HostBinding('@routeAnimation') get routeAnimation(){
+  return true;
+}
 
+@HostBinding('style.display') get display(){
+  return 'block';
+}
 
 	alienslist: Alien[];
 	reportForm: FormGroup;

@@ -1,0 +1,52 @@
+textarea{
+  width: 85%;
+  margin-top: 10px;
+    font-size: 50px;
+    color: white;
+    margin: 0 auto;
+    background: firebrick;
+    height: 300px;
+    width: 600px;
+    padding: 5px;
+    background-size: cover;
+}
+.app-wrapper{
+    background: black;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: center;
+}
+.button-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+form{
+  
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+select{
+
+}
+.header{
+    text-align: center;
+}
+.text-name-input{
+	width: 85%;
+	color: FireBrick ;
+	font-size: 50px;
+	border: none;
+	border-radius: 0px;
+	background: transparent;
+  /*outline: 1px solid #CCC;*/
+  border-radius: 0;
+  -webkit-appearance: none;
+  border-bottom: 1px white solid;
+
+  margin: 0 auto;
+}
